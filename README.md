@@ -1,27 +1,30 @@
-# HelloAngular
+## Interpolation
+Interpolation refers to embedding expressions or displaying text in the view from the controller.
+It is one-way data binding from class to template.
+It uses {{}} as delimiters.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+1. We can embedd methods/properties and evaluate expressions. However assignment of variables is not allowed. 
+2. Cannot directly access global variables like document or window. 
 
-## Development server
+## Property Binding
+It is used to bind data to DOM elements.
+To bind to an element's property, enclose it in sq brackets [], which identifies the property as target property. Alternative syntax is to use prefix "bind-" to property name. 
+It is almost similar to interpolation except that property binding supports data types other than string like boolean.
+It is one-way data binding from class to template.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Difference between attributes and properties ?
+1. Attributes are defined by HTML whereas properties are defined by DOM.
+2. Attributes are used to define the DOM properties and then properties come into play.
+3. Attributes values cannot change once they are initialized. However properties can change.
+4. Attributes are defined on HTML elements and then once browser parses the code, a corresponding DOM node is created which is basically an object of K-V pairs and there it is called properties.
 
-## Code scaffolding
+When to use Property Binding over Interpolation ?
+Not sure but for HTML elements it's better to go with property binding and stick to interpolation only for displaying texts.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Event Binding
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Template Reference Variables
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Two Way Data Binding
+Two Way data binding is a technique to keep the view and model/controller in sync. It basically combines property binding(model->view) and event binding(view->model). 

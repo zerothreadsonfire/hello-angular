@@ -9,5 +9,20 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'hello-angular';
+  name = 'Saty';
+  inputVal1 = 'abc';
+
+  constructor() {
+    setTimeout(() => {
+      this.setInputVal1("def");
+    }, 3000);
+  }
+
+  getNameInUpperCase() {
+    return this.name.toUpperCase();
+  }
+
+  setInputVal1(value: string) {
+    this.inputVal1 = value;
+  }
 }

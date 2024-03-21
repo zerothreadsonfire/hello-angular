@@ -1,5 +1,15 @@
 <div>
-  hello
+  <h3>Interpolation</h3>
+  Hello {{name}}
+  <br/>
+  {{"Hi, " + name}}
+  <br/>
+  {{10+name.length}}
+  <br/>
+  {{getNameInUpperCase()}}
 
-  <input value="xyz">
+  <h3>Property Binding</h3>
+  <input [value]="inputVal1" />
 </div>
+
+<input value="">
