@@ -10,6 +10,68 @@
 
   <h3>Property Binding</h3>
   <input [value]="inputVal1" />
+
+  <h3>Event Binding</h3>
+  <button (click)="onClick($event)">{{btnLabel}}</button>
+
+  <h3>Template Ref variables</h3>
+  <input #myInput type="text"/>
+  <button (click)="onClick2(myInput.value)">Click me 2</button>
+
+  <h3>Two Way Data Binding</h3>
+  <input [(ngModel)]="inputVal2" />
+  <h4>{{inputVal2}}</h4>
+
+  <h3>Structural Directives</h3>
+
+  <h4>If Directive</h4>
+  <!-- If block is inline with the condition to display it -->
+  <div *ngIf="displayCondition; else elseBlock">
+    Displaying If condition is true
+  </div>
+  <ng-template #elseBlock>
+    Displaying else block if displayCondition is false
+  </ng-template>
+  <button (click)="(onClickChangeDisplay())">Toggle Display</button>
+
+  <!-- Separate if and else blocks from the condition -->
+  <div *ngIf="displayCondition; then thenBlock; else elseBlock"></div>
+  <ng-template #thenBlock>
+    Displaying then block if displayCondition is true
+  </ng-template>
+  <ng-template #elseBlock>
+    Displaying else block if displayCondition is false
+  </ng-template>
+
+
+  <h4>Switch Directive</h4>
+  <div [ngSwitch]="colorValue">
+    <div *ngSwitchCase="'red'">Red is selected</div>
+    <div *ngSwitchCase="'blue'">Blue is selected</div>
+    <div *ngSwitchCase="'green'">Green is selected</div>
+    <div *ngSwitchDefault>Unknown Color</div>
+  </div>
+
+
+  <h4>For Directive</h4>
+  <div *ngFor="let animal of animalsList, index as idx, first as f, last as l, odd as o, even as e">
+    <p>{{idx}}. {{animal}} - {{f}} - {{l}} - {{e}} - {{o}}</p>
+  </div>
+
+  <h4>Component Interactions</h4>
+  Message from Child - {{dataFromChild}}
+  <child-comp (childEvent)="dataFromChild=$event" [dataFromParent]="dataForChild"></child-comp>
+
+  <h4>Pipes</h4>
+  {{name | lowercase}} -
+  {{name | uppercase}} - 
+  {{name | titlecase}} -
+  {{name | slice:2}} -
+  {{name | slice:2:5}}
+
+  <br/>
+
+  
 </div>
 
-<input value="">
+<!-- <input value=""> -->
